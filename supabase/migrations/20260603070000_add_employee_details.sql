@@ -1,0 +1,28 @@
+-- Migration: Add fields for comprehensive employee details entry (Checklist, previous employment, personal, bank, and office details)
+
+ALTER TABLE public.employees
+  ADD COLUMN IF NOT EXISTS religion TEXT,
+  ADD COLUMN IF NOT EXISTS marital_status TEXT,
+  ADD COLUMN IF NOT EXISTS spouse_name TEXT,
+  ADD COLUMN IF NOT EXISTS children JSONB DEFAULT '[]'::jsonb,
+  ADD COLUMN IF NOT EXISTS bank_account_holder TEXT,
+  ADD COLUMN IF NOT EXISTS section TEXT,
+  ADD COLUMN IF NOT EXISTS employment_conditions TEXT,
+  ADD COLUMN IF NOT EXISTS salary TEXT,
+  ADD COLUMN IF NOT EXISTS training_from DATE,
+  ADD COLUMN IF NOT EXISTS training_to DATE,
+  ADD COLUMN IF NOT EXISTS permanent_date DATE,
+  ADD COLUMN IF NOT EXISTS retirement_date DATE,
+  ADD COLUMN IF NOT EXISTS telephone TEXT,
+  ADD COLUMN IF NOT EXISTS chk_cv BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_nic_copy BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_birth_certificate BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_gs_copy BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_edu_al BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_edu_ol BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_edu_degree BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_edu_post_graduate BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_prof_nvq BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_prof_vta_naita BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS chk_prof_other BOOLEAN DEFAULT false,
+  ADD COLUMN IF NOT EXISTS previous_employments JSONB DEFAULT '[]'::jsonb;
